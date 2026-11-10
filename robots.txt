@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://krealdawg.github.io/adventatlas/sitemap.xml

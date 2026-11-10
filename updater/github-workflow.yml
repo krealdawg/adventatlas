@@ -1,0 +1,52 @@
+# Advent Atlas : publie le site sur GitHub Pages et met à jour le catalogue chaque nuit (~06:00 heure suisse)
+name: Publication et mise à jour du site
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Mettre à jour le catalogue
+        if: github.event_name != 'push'
+        run: node updater/update.mjs
+        env:
+          AWIN_FEED_URL: ${{ secrets.AWIN_FEED_URL }}
+          TRADEDOUBLER_GALAXUS_FEED_URL: ${{ secrets.TRADEDOUBLER_GALAXUS_FEED_URL }}
+          OTHER_FEED_URL: ${{ secrets.OTHER_FEED_URL }}
+      - name: Enregistrer les changements
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "advent-atlas-bot"
+          git config user.email "advent-atlas-bot@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || (git commit -m "Catalogue mis à jour $(date -u +%F)" && git push)
+      - name: Préparer le site
+        run: |
+          mkdir -p _site/data
+          cp index.html privacy.html cgu.html robots.txt sitemap.xml ads.txt _site/
+          cp data/calendars.json _site/data/
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

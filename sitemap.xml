@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://krealdawg.github.io/adventatlas/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://krealdawg.github.io/adventatlas/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krealdawg.github.io/adventatlas/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krealdawg.github.io/adventatlas/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://krealdawg.github.io/adventatlas/?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://krealdawg.github.io/adventatlas/?lang=es"/>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

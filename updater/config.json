@@ -1,0 +1,452 @@
+{
+  "_aide": "Configuration du robot de mise à jour. Voir GUIDE-MISE-EN-LIGNE.md, section « Mise à jour automatique ». Les valeurs ${NOM} sont lues dans les secrets GitHub.",
+  "siteUrl": "https://krealdawg.github.io/adventatlas",
+  "removeAfterDays": 2,
+  "maxNewPerRun": 80,
+  "checkProductPages": true,
+  "keywords": [
+    "calendrier de l'avent",
+    "calendrier de l’avent",
+    "calendrier avent",
+    "adventskalender",
+    "advent calendar",
+    "advent-kalender",
+    "calendario dell'avvento",
+    "calendario avvento",
+    "calendario de adviento",
+    "adventkalender",
+    "julekalender",
+    "kalendarz adwentowy"
+  ],
+  "exclude": [
+    "vide",
+    "à remplir",
+    "a remplir",
+    "leer",
+    "zum befüllen",
+    "zum befuellen",
+    "selbst befüllen",
+    "empty",
+    "fill your own",
+    "refill",
+    "diy kit",
+    "support",
+    "présentoir",
+    "ständer",
+    "stoffbeutel",
+    "säckchen",
+    "pochettes vides",
+    "numéros autocollants",
+    "zahlenaufkleber",
+    "occasion",
+    "gebraucht",
+    "used"
+  ],
+  "feeds": [
+    {
+      "name": "Awin (Lookfantastic, Rituals, Douglas…) — un flux « Create-a-Feed » filtré sur les mots-clés",
+      "enabled": false,
+      "url": "${AWIN_FEED_URL}",
+      "format": "csv",
+      "fields": {
+        "id": "aw_product_id",
+        "title": "product_name",
+        "brand": "brand_name",
+        "price": "search_price",
+        "currency": "currency",
+        "link": "aw_deep_link",
+        "productUrl": "merchant_deep_link",
+        "inStock": "in_stock",
+        "merchant": "merchant_name"
+      }
+    },
+    {
+      "name": "Galaxus via Tradedoubler — flux produits",
+      "enabled": false,
+      "url": "${TRADEDOUBLER_GALAXUS_FEED_URL}",
+      "format": "csv",
+      "fields": {
+        "id": "TDProductId",
+        "title": "name",
+        "brand": "brand",
+        "price": "price",
+        "currency": "currency",
+        "link": "productUrl",
+        "productUrl": "",
+        "inStock": "availability",
+        "merchant": ""
+      }
+    },
+    {
+      "name": "Autre réseau (Effinity, Rakuten, CJ…) — flux JSON ou XML",
+      "enabled": false,
+      "url": "${OTHER_FEED_URL}",
+      "format": "xml",
+      "itemTag": "product",
+      "fields": {
+        "id": "id",
+        "title": "title",
+        "brand": "brand",
+        "price": "price",
+        "currency": "currency",
+        "link": "link",
+        "productUrl": "",
+        "inStock": "availability",
+        "merchant": "merchant"
+      }
+    }
+  ],
+  "categoryRules": [
+    [
+      "pets",
+      [
+        "chien",
+        "chat",
+        "hund",
+        "katze",
+        "dog",
+        "cat",
+        "pet",
+        "animal",
+        "tier",
+        "cane",
+        "gatto",
+        "perro",
+        "gato"
+      ]
+    ],
+    [
+      "drinks",
+      [
+        "bière",
+        "biere",
+        "bier",
+        "beer",
+        "birra",
+        "whisky",
+        "whiskey",
+        "gin",
+        "rhum",
+        "rum",
+        "vin",
+        "wein",
+        "wine",
+        "vino",
+        "spirit",
+        "spiritueux",
+        "liqueur",
+        "likör",
+        "sake"
+      ]
+    ],
+    [
+      "tea",
+      [
+        "thé noir",
+        "thé vert",
+        "thé blanc",
+        "thés",
+        "thé bio",
+        "de thé",
+        "du thé",
+        "tea",
+        "teas",
+        "tee",
+        "tees",
+        "tè",
+        "infusion",
+        "tisane",
+        "rooibos",
+        "matcha",
+        "chai",
+        "café",
+        "kaffee",
+        "coffee",
+        "caffè"
+      ]
+    ],
+    [
+      "jewel",
+      [
+        "bijou",
+        "schmuck",
+        "jewel",
+        "gioiell",
+        "joya",
+        "bracelet",
+        "armband",
+        "collier",
+        "kette",
+        "charm",
+        "swarovski",
+        "pandora"
+      ]
+    ],
+    [
+      "home",
+      [
+        "bougie",
+        "kerze",
+        "candle",
+        "candela",
+        "vela",
+        "parfum d'intérieur",
+        "duftkerze",
+        "diffuseur"
+      ]
+    ],
+    [
+      "beauty",
+      [
+        "beauté",
+        "beauty",
+        "kosmetik",
+        "cosmétique",
+        "maquillage",
+        "make-up",
+        "makeup",
+        "soin",
+        "skincare",
+        "pflege",
+        "parfum",
+        "duft",
+        "fragrance",
+        "nail",
+        "ongle",
+        "vernis",
+        "bellezza",
+        "belleza"
+      ]
+    ],
+    [
+      "wellness",
+      [
+        "bien-être",
+        "wellness",
+        "bain",
+        "bad",
+        "bath",
+        "huile essentielle",
+        "aroma",
+        "spa",
+        "relax"
+      ]
+    ],
+    [
+      "choc",
+      [
+        "chocolat",
+        "schokolade",
+        "schoggi",
+        "chocolate",
+        "cioccolat",
+        "praline",
+        "praliné",
+        "truffe",
+        "trüffel"
+      ]
+    ],
+    [
+      "sweets",
+      [
+        "bonbon",
+        "gummi",
+        "fruchtgummi",
+        "haribo",
+        "biscuit",
+        "keks",
+        "cookie",
+        "candy",
+        "sweets",
+        "süss",
+        "süß",
+        "caramel"
+      ]
+    ],
+    [
+      "gourmet",
+      [
+        "épicerie",
+        "feinkost",
+        "gourmet",
+        "fromage",
+        "käse",
+        "cheese",
+        "saucisson",
+        "wurst",
+        "épice",
+        "gewürz",
+        "spice",
+        "chili",
+        "confiture",
+        "marmelade",
+        "miel",
+        "honig"
+      ]
+    ],
+    [
+      "collect",
+      [
+        "pokémon",
+        "pokemon",
+        "funko",
+        "topps",
+        "panini",
+        "minecraft",
+        "squishmallow",
+        "harry potter",
+        "marvel",
+        "star wars",
+        "disney",
+        "anime",
+        "manga",
+        "figurine",
+        "sammel"
+      ]
+    ],
+    [
+      "toys",
+      [
+        "lego",
+        "playmobil",
+        "jouet",
+        "spielzeug",
+        "toy",
+        "giocattol",
+        "juguete",
+        "voiture",
+        "hot wheels",
+        "barbie",
+        "schleich",
+        "brio",
+        "duplo"
+      ]
+    ],
+    [
+      "games",
+      [
+        "puzzle",
+        "livre",
+        "buch",
+        "book",
+        "libro",
+        "jeu",
+        "spiel",
+        "game",
+        "escape",
+        "énigme",
+        "rätsel",
+        "quiz",
+        "bd"
+      ]
+    ],
+    [
+      "diy",
+      [
+        "bricolage",
+        "basteln",
+        "craft",
+        "dessin",
+        "zeichnen",
+        "drawing",
+        "peinture",
+        "malen",
+        "crayon",
+        "stift",
+        "expérience",
+        "experiment",
+        "science",
+        "wissenschaft",
+        "électronique",
+        "elektronik",
+        "tricot",
+        "stricken"
+      ]
+    ]
+  ],
+  "audienceRules": [
+    [
+      "p",
+      [
+        "chien",
+        "chat",
+        "hund",
+        "katze",
+        "dog",
+        "cat",
+        "pet",
+        "animal"
+      ]
+    ],
+    [
+      "k",
+      [
+        "enfant",
+        "kinder",
+        "kids",
+        "child",
+        "bambin",
+        "niño",
+        "garçon",
+        "fille",
+        "jungen",
+        "mädchen",
+        "lego",
+        "playmobil",
+        "jouet",
+        "spielzeug",
+        "toy"
+      ]
+    ],
+    [
+      "t",
+      [
+        "ado",
+        "teen",
+        "jugend",
+        "pokémon",
+        "pokemon",
+        "minecraft",
+        "funko"
+      ]
+    ],
+    [
+      "m",
+      [
+        "homme",
+        "herren",
+        "männer",
+        "men",
+        "uomo",
+        "hombre",
+        "bière",
+        "bier",
+        "beer",
+        "whisky",
+        "gin",
+        "rum",
+        "rhum"
+      ]
+    ],
+    [
+      "w",
+      [
+        "femme",
+        "damen",
+        "frauen",
+        "women",
+        "donna",
+        "mujer",
+        "beauté",
+        "beauty",
+        "kosmetik",
+        "maquillage",
+        "bijou",
+        "schmuck",
+        "jewel",
+        "parfum",
+        "nail"
+      ]
+    ]
+  ]
+}
